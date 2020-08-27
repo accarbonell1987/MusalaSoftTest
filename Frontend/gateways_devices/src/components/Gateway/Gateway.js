@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button, Grid, Icon, Table, Input } from "semantic-ui-react";
-import "../globals/css/Generic.css";
-import DeviceModal from "./DeviceModal";
+import "../../globals/css/Generic.css";
+import DeviceModal from "../Device/DeviceModal";
 import GatewayAdd from "./GatewayAdd";
 import Swal from "sweetalert2";
 
@@ -22,6 +22,7 @@ export class Gateway extends Component {
       toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
   });
+  abortController = new AbortController();
 
   constructor(props) {
     super(props);
@@ -32,6 +33,9 @@ export class Gateway extends Component {
   componentDidMount = () => {
     this.gatewaysFromApi();
   };
+  componentWillUnmount() {
+    this.abortController.abort();
+  }
 
   gatewaysFromApi = () => {
     axios.get("https://localhost:44392/api/gateways").then((res) => {
@@ -67,7 +71,7 @@ export class Gateway extends Component {
             Swal.fire({
               position: "center",
               icon: "error",
-              title: err,
+              title: err.response.data,
               showConfirmButton: false,
               timer: 5000,
             });
@@ -76,7 +80,6 @@ export class Gateway extends Component {
     });
   };
 
-  onClickNavigateToDevices = (evt) => {};
   onClickSearch = (evt) => {};
   onKeyPressed = (evt) => {};
 
@@ -98,14 +101,14 @@ export class Gateway extends Component {
               <Table.Row>
                 <Table.HeaderCell />
                 <Table.HeaderCell colSpan="6">
-                  <GatewayAdd gatewaysFromApi={this.gatewaysFromApi} />
+                  <GatewayAdd gatewaysFromApi={this.gatewaysFromApi()} />
                 </Table.HeaderCell>
               </Table.Row>
               <Table.Row>
                 <Table.HeaderCell />
                 <Table.HeaderCell>Serial Number</Table.HeaderCell>
                 <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>IPv4</Table.HeaderCell>
+                <Table.HeaderCell>IPv4 Address</Table.HeaderCell>
                 <Table.HeaderCell className="cells-max-witdh-2">Devices</Table.HeaderCell>
                 <Table.HeaderCell className="cells-max-witdh-2">Actions</Table.HeaderCell>
               </Table.Row>
@@ -121,10 +124,6 @@ export class Gateway extends Component {
                     <Table.Cell>{gateway.name}</Table.Cell>
                     <Table.Cell>{gateway.ipv4address}</Table.Cell>
                     <Table.Cell className="cell-logs" collapsing>
-                      {/* <Button icon labelPosition="right" className="button-logs" onClick={this.onClickNavigateToDevices}>
-                        <Icon name="microchip" className="button-icon-logs" />
-                        {gateway.devices.length} Devices
-                      </Button> */}
                       <DeviceModal gateway={gateway} />
                     </Table.Cell>
                     <Table.Cell className="cell-acciones" collapsing>

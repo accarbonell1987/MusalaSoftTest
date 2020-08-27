@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using API_REST_Core.Contexts;
@@ -27,9 +28,16 @@ namespace API_REST_Core
         public void ConfigureServices(IServiceCollection services) {
             //Set dbcontext connection
             services.AddCors();
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("es-ES");
+                options.SupportedCultures = new List<CultureInfo> { new CultureInfo("es-ES") };
+            });
             services.AddDbContext<EntityFrameworkCoreDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {

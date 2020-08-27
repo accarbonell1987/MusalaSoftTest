@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import { Button, Modal, Icon, Header } from "semantic-ui-react";
-import "../globals/css/Generic.css";
+import "../../globals/css/Generic.css";
 import Device from "./Device";
 
 class DeviceModal extends Component {
   state = {
     open: false,
-    devices: [],
   };
+  abortController = new AbortController();
 
   componentDidMount = () => {
     this.clearModalStates();
   };
+  componentWillUnmount() {
+    this.abortController.abort();
+  }
+
   changeModalStates = async (evt) => {
     if (evt.target.className.includes("modal-button-add") || evt.target.className.includes("modal-icon-add")) {
-      this.clearModalStates();
       this.setState({ open: true });
     } else if (evt.target.className.includes("modal-button-cancel") || evt.target.className.includes("modal-icon-cancel")) {
       this.setState({ open: false });

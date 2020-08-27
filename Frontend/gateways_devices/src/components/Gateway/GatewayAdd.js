@@ -3,7 +3,7 @@ import { Button, Icon, Header, Modal, Form } from "semantic-ui-react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-import "../globals/css/Generic.css";
+import "../../globals/css/Generic.css";
 
 export class GatewayAdd extends Component {
   state = {
@@ -81,7 +81,7 @@ export class GatewayAdd extends Component {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: err,
+          title: err.response.data,
           showConfirmButton: false,
           timer: 5000,
         });
@@ -90,7 +90,6 @@ export class GatewayAdd extends Component {
   };
   onSubmit = (evt) => {
     if (this.addGateway()) {
-      //enviar a recargar los usuarios
       this.props.gatewaysFromApi();
     }
   };
@@ -130,24 +129,22 @@ export class GatewayAdd extends Component {
       >
         <Header icon="shuffle" content="Add Gateway" />
         <Modal.Content>
-          {/* {this.state.errorform ? <Message error inverted header="Error" content="Error en el formulario" /> : null} */}
           <Form ref="form" OnSubmit={this.changeModalState}>
             <Form.Input
               name="serialnumber"
-              icon="user"
+              icon="edit"
               iconPosition="left"
               label="Serial Number:"
               placeholder="AutoGenerate..."
               value=""
               disabled
-              // error={this.state.errornombre}
               onChange={this.changeModalInputs}
               onKeyDown={this.onPressEnter}
             />
             <Form.Input
               required
               name="name"
-              icon="user"
+              icon="edit"
               iconPosition="left"
               label="Name:"
               placeholder="Miami Gate"
@@ -157,10 +154,9 @@ export class GatewayAdd extends Component {
             <Form.Input
               required
               name="ipv4address"
-              icon="mail"
+              icon="edit"
               iconPosition="left"
               label="IPv4:"
-              // error={this.state.erroremail}
               placeholder="172.217.1.99"
               onChange={this.changeModalInputs}
               onKeyDown={this.onPressEnter}

@@ -96,7 +96,7 @@ namespace API_REST_Core.Controllers
             gateway.serialnumber = Helper.GenerateHashSerial();
             //validate if IPv4 of the new gateway is valid
             bool isValidIp = await Helper.IsValidIPv4(gateway.ipv4address);
-            Thread.Sleep(100);
+            Thread.Sleep(120);
 
             if (!isValidIp) return BadRequest("The gateway has not valid IPv4 address");
             else {

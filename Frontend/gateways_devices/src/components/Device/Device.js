@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Button, Grid, Icon, Table, Input, Checkbox } from "semantic-ui-react";
-import "../globals/css/Generic.css";
-// import DeviceAdd from "./GatewayAdd";
+import "../../globals/css/Generic.css";
+import DeviceAdd from "./DeviceAdd";
 import Swal from "sweetalert2";
 import moment from "moment";
 
@@ -22,22 +22,27 @@ export class Device extends Component {
       toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
   });
+  abortController = new AbortController();
 
   constructor(props) {
     super(props);
-    this.devicesFromApi = this.devicesFromApi.bind(this);
     this.deleteDevice = this.deleteDevice.bind(this);
+    this.devicesFromApi = this.devicesFromApi.bind(this);
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.devicesFromApi();
-  };
+  }
+  componentWillUnmount() {
+    this.abortController.abort();
+  }
 
   devicesFromApi = () => {
-    axios.get("https://localhost:44392/api/devices").then((res) => {
+    axios.get("https://localhost:44392/api/devices/gateway/" + this.props.gateway._id).then((res) => {
       this.setState({ devices: res.data });
     });
   };
+
   deleteDevice = (device) => {
     const text = "Really do you want to delete " + device.name + " device?";
     Swal.fire({
@@ -67,7 +72,7 @@ export class Device extends Component {
             Swal.fire({
               position: "center",
               icon: "error",
-              title: err,
+              title: err.response.data,
               showConfirmButton: false,
               timer: 5000,
             });
@@ -80,7 +85,8 @@ export class Device extends Component {
   onKeyPressed = (evt) => {};
 
   render() {
-    const { searchcriteria } = this.state;
+    const { searchcriteria, devices } = this.state;
+    let number = 1;
     return (
       <Grid textAlign="center" verticalAlign="top" className="gestionar-allgrid">
         <Grid.Column className="gestionar-allcolumn">
@@ -96,10 +102,13 @@ export class Device extends Component {
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell />
-                <Table.HeaderCell colSpan="6">{/* <DeviceAdd devicesFromApi={this.devicesFromApi} /> */}</Table.HeaderCell>
+                <Table.HeaderCell colSpan="7">
+                  <DeviceAdd gateway={this.props.gateway} devicesFromApi={this.devicesFromApi()} devices={this.state.devices} />
+                </Table.HeaderCell>
               </Table.Row>
               <Table.Row>
                 <Table.HeaderCell />
+                <Table.HeaderCell>Number</Table.HeaderCell>
                 <Table.HeaderCell>UID</Table.HeaderCell>
                 <Table.HeaderCell>Vendor</Table.HeaderCell>
                 <Table.HeaderCell>Date of Creation</Table.HeaderCell>
@@ -109,13 +118,14 @@ export class Device extends Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.state.devices.map((device) => {
+              {devices.map((device) => {
                 const date = moment(new Date(device.datecreated)).format("DD-MM-YYYY");
                 return (
                   <Table.Row key={device._id}>
                     <Table.Cell collapsing>
                       <Icon name="microchip" />
                     </Table.Cell>
+                    <Table.Cell>{number++}</Table.Cell>
                     <Table.Cell>{device.uid}</Table.Cell>
                     <Table.Cell>{device.vendor}</Table.Cell>
                     <Table.Cell>{date}</Table.Cell>
@@ -123,10 +133,7 @@ export class Device extends Component {
                       <Checkbox toggle name="active" labelPosition="left" label={device.status ? "Yes" : "No"} checked={device.status} disabled />
                     </Table.Cell>
                     <Table.Cell className="cell-logs" collapsing>
-                      <Button icon labelPosition="right" className="button-logs">
-                        <Icon name="microchip" className="button-icon-logs" />
-                        Gateway
-                      </Button>
+                      {this.props.gateway.name}
                     </Table.Cell>
                     <Table.Cell className="cell-acciones" collapsing>
                       {<Button icon="remove circle" className="button-remove" onClick={() => this.deleteDevice(device)} />}

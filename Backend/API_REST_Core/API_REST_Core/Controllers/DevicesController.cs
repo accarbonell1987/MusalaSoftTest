@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API_REST_Core.Contexts;
 using API_REST_Core.Models;
+using API_REST_Core.Utils;
 
 namespace API_REST_Core.Controllers
 {
@@ -90,6 +91,9 @@ namespace API_REST_Core.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            //controled serial number by the backend
+            device.uid = Helper.GenerateHashSerial();
 
             _context.Devices.Add(device);
             await _context.SaveChangesAsync();

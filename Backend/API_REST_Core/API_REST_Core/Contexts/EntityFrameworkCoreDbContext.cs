@@ -17,6 +17,11 @@ namespace API_REST_Core.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            //create relationship
+            modelBuilder.Entity<Device>()
+            .HasOne(p => p.Gateway)
+            .WithMany(b => b.Devices);
+
             modelBuilder.Entity<Gateway>()
                 .HasData(
                 new Gateway() {
@@ -30,7 +35,7 @@ namespace API_REST_Core.Contexts
                 new Device() {
                     _idGateway = 1,
                     _id = 1,
-                    number = 1,
+                    uid = Helper.GenerateHashSerial(),
                     datecreated = DateTime.Now,
                     vendor = "Huawei Co",
                     status = true,

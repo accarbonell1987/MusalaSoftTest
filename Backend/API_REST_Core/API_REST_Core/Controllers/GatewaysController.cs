@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using API_REST_Core.Contexts;
 using API_REST_Core.Models;
 using API_REST_Core.Utils;
+using System.Threading;
 
 namespace API_REST_Core.Controllers
 {
@@ -91,14 +92,18 @@ namespace API_REST_Core.Controllers
             {
                 return BadRequest(ModelState);
             }
+            //controled serial number by the backend
+            gateway.serialnumber = Helper.GenerateHashSerial();
+            //validate if IPv4 of the new gateway is valid
+            bool isValidIp = await Helper.IsValidIPv4(gateway.ipv4address);
+            Thread.Sleep(100);
 
-            //TODO: validate if IPv4 of the new gateway is valid
-            if (!Helper.IsValidIPv4(gateway.ipv4address)) return BadRequest("The gateway has not valid IPv4 address");
-
-            _context.Gateways.Add(gateway);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetGateway", new { id = gateway._id }, gateway);
+            if (!isValidIp) return BadRequest("The gateway has not valid IPv4 address");
+            else {
+                _context.Gateways.Add(gateway);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetGateway", new { id = gateway._id }, gateway);
+            }
         }
 
         // DELETE: api/Gateways/5

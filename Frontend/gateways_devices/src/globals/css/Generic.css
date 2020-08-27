@@ -18,7 +18,7 @@
 }
 
 .div-table {
-  margin-top: 3.5rem !important;
+  /* margin-top: 3.5rem !important; */
   /* overflow-x: scroll;
 	max-width: 1337px; */
   /* overflow-y: scroll; */
@@ -33,4 +33,10 @@
 
 .button-remove {
   color: #db2828 !important;
+}
+
+.modal-windows {
+  min-width: 1400px !important;
+  max-width: 1500px !important;
+  width: 1400px !important;
 }

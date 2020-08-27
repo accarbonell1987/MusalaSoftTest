@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\accar\\Documents\\Trabajo\\Musala\\Backend\\API_REST_Core\\API_REST_Core\\API_REST_Core.csproj": {}
+    "C:\\Users\\accar\\Documents\\Trabajo\\Github\\MusalaSoftTest\\Backend\\API_REST_Core\\API_REST_Core\\API_REST_Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\accar\\Documents\\Trabajo\\Musala\\Backend\\API_REST_Core\\API_REST_Core\\API_REST_Core.csproj": {
+    "C:\\Users\\accar\\Documents\\Trabajo\\Github\\MusalaSoftTest\\Backend\\API_REST_Core\\API_REST_Core\\API_REST_Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\accar\\Documents\\Trabajo\\Musala\\Backend\\API_REST_Core\\API_REST_Core\\API_REST_Core.csproj",
+        "projectUniqueName": "C:\\Users\\accar\\Documents\\Trabajo\\Github\\MusalaSoftTest\\Backend\\API_REST_Core\\API_REST_Core\\API_REST_Core.csproj",
         "projectName": "API_REST_Core",
-        "projectPath": "C:\\Users\\accar\\Documents\\Trabajo\\Musala\\Backend\\API_REST_Core\\API_REST_Core\\API_REST_Core.csproj",
+        "projectPath": "C:\\Users\\accar\\Documents\\Trabajo\\Github\\MusalaSoftTest\\Backend\\API_REST_Core\\API_REST_Core\\API_REST_Core.csproj",
         "packagesPath": "C:\\Users\\accar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\accar\\Documents\\Trabajo\\Musala\\Backend\\API_REST_Core\\API_REST_Core\\obj\\",
+        "outputPath": "C:\\Users\\accar\\Documents\\Trabajo\\Github\\MusalaSoftTest\\Backend\\API_REST_Core\\API_REST_Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

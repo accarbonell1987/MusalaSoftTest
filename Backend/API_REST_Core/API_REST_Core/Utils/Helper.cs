@@ -34,16 +34,9 @@ namespace API_REST_Core.Utils
         /// </summary>
         /// <param name="ipdireccion">ipdireccion</param>
         /// <returns>bool</returns>
-        public static bool IsValidIPv4(string ipdireccion) {
-            if (IPAddress.TryParse(ipdireccion, out IPAddress address)) {
-                switch (address.AddressFamily) {
-                    case System.Net.Sockets.AddressFamily.InterNetwork:
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-            return false;
+        public static async Task<bool> IsValidIPv4(string ipdireccion) {
+            bool isValid = await Task.Run(() => IPAddress.TryParse(ipdireccion, out IPAddress ip));
+            return isValid;
         }
 
         //Taken from https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashalgorithm.computehash?view=netcore-3.1

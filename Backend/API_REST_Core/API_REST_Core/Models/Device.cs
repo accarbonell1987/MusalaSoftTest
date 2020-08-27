@@ -14,7 +14,7 @@ namespace API_REST_Core.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int _id { get; set; }
 
-        public int number { get; set; }
+        public string uid { get; set; }
         public string vendor { get; set; }
         public DateTime datecreated { get; set; }
         public bool status { get; set; }
@@ -22,7 +22,7 @@ namespace API_REST_Core.Models
 
         #region Relations
         [ForeignKey("_idGateway")]
-        public Gateway gateway { get; set; }
+        public Gateway Gateway { get; set; }
         public int _idGateway { get; set; }
         #endregion
     }

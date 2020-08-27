@@ -19,7 +19,7 @@ namespace API_REST_Core.Models
         #endregion
 
         #region Relations
-        public ICollection<Device> devices { get; set; } = new List<Device>();
+        public List<Device> Devices { get; set; } = new List<Device>();
         #endregion
     }
 }

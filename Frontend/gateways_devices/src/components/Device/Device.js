@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button, Grid, Icon, Table, Input, Checkbox } from "semantic-ui-react";
+import { Button, Grid, Icon, Table, Checkbox, Label } from "semantic-ui-react";
 import "../../globals/css/Generic.css";
 import DeviceAdd from "./DeviceAdd";
 import Swal from "sweetalert2";
@@ -85,66 +85,61 @@ export class Device extends Component {
   onKeyPressed = (evt) => {};
 
   render() {
-    const { searchcriteria, devices } = this.state;
+    const { devices } = this.state;
     let number = 1;
     return (
-      <Grid textAlign="center" verticalAlign="top" className="gestionar-allgrid">
-        <Grid.Column className="gestionar-allcolumn">
-          <Input
-            name="find"
-            value={searchcriteria}
-            icon={<Icon name="search" inverted circular link onClick={this.onClickSearch} />}
-            placeholder="Search..."
-            onChange={this.onClickSearch}
-            onKeyDown={this.onKeyPressed}
-          />
-          <Table compact celled definition>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell />
-                <Table.HeaderCell colSpan="7">
-                  <DeviceAdd gateway={this.props.gateway} devicesFromApi={this.devicesFromApi()} devices={this.state.devices} />
-                </Table.HeaderCell>
-              </Table.Row>
-              <Table.Row>
-                <Table.HeaderCell />
-                <Table.HeaderCell>Number</Table.HeaderCell>
-                <Table.HeaderCell>UID</Table.HeaderCell>
-                <Table.HeaderCell>Vendor</Table.HeaderCell>
-                <Table.HeaderCell>Date of Creation</Table.HeaderCell>
-                <Table.HeaderCell>Status</Table.HeaderCell>
-                <Table.HeaderCell className="cells-max-witdh-2">Gateway</Table.HeaderCell>
-                <Table.HeaderCell className="cells-max-witdh-2">Actions</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {devices.map((device) => {
-                const date = moment(new Date(device.datecreated)).format("DD-MM-YYYY");
-                return (
-                  <Table.Row key={device._id}>
-                    <Table.Cell collapsing>
-                      <Icon name="microchip" />
-                    </Table.Cell>
-                    <Table.Cell>{number++}</Table.Cell>
-                    <Table.Cell>{device.uid}</Table.Cell>
-                    <Table.Cell>{device.vendor}</Table.Cell>
-                    <Table.Cell>{date}</Table.Cell>
-                    <Table.Cell>
-                      <Checkbox toggle name="active" labelPosition="left" label={device.status ? "Yes" : "No"} checked={device.status} disabled />
-                    </Table.Cell>
-                    <Table.Cell className="cell-logs" collapsing>
-                      {this.props.gateway.name}
-                    </Table.Cell>
-                    <Table.Cell className="cell-acciones" collapsing>
-                      {<Button icon="remove circle" className="button-remove" onClick={() => this.deleteDevice(device)} />}
-                    </Table.Cell>
-                  </Table.Row>
-                );
-              })}
-            </Table.Body>
-          </Table>
-        </Grid.Column>
-      </Grid>
+      <div>
+        <Label size="huge">Devices</Label>
+        <Grid textAlign="center" verticalAlign="top" className="gestionar-allgrid">
+          <Grid.Column className="gestionar-allcolumn">
+            <Table compact celled definition>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell />
+                  <Table.HeaderCell colSpan="7">
+                    <DeviceAdd gateway={this.props.gateway} devicesFromApi={this.devicesFromApi()} devices={this.state.devices} />
+                  </Table.HeaderCell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.HeaderCell />
+                  <Table.HeaderCell>Number</Table.HeaderCell>
+                  <Table.HeaderCell>UID</Table.HeaderCell>
+                  <Table.HeaderCell>Vendor</Table.HeaderCell>
+                  <Table.HeaderCell>Date of Creation</Table.HeaderCell>
+                  <Table.HeaderCell>Status</Table.HeaderCell>
+                  <Table.HeaderCell className="cells-max-witdh-2">Gateway</Table.HeaderCell>
+                  <Table.HeaderCell className="cells-max-witdh-2">Actions</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {devices.map((device) => {
+                  const date = moment(new Date(device.datecreated)).format("DD-MM-YYYY");
+                  return (
+                    <Table.Row key={device._id}>
+                      <Table.Cell collapsing>
+                        <Icon name="microchip" />
+                      </Table.Cell>
+                      <Table.Cell>{number++}</Table.Cell>
+                      <Table.Cell>{device.uid}</Table.Cell>
+                      <Table.Cell>{device.vendor}</Table.Cell>
+                      <Table.Cell>{date}</Table.Cell>
+                      <Table.Cell>
+                        <Checkbox toggle name="active" labelPosition="left" label={device.status ? "Yes" : "No"} checked={device.status} disabled />
+                      </Table.Cell>
+                      <Table.Cell className="cell-logs" collapsing>
+                        {this.props.gateway.name}
+                      </Table.Cell>
+                      <Table.Cell className="cell-acciones" collapsing>
+                        {<Button icon="remove circle" className="button-remove" onClick={() => this.deleteDevice(device)} />}
+                      </Table.Cell>
+                    </Table.Row>
+                  );
+                })}
+              </Table.Body>
+            </Table>
+          </Grid.Column>
+        </Grid>
+      </div>
     );
   }
 }

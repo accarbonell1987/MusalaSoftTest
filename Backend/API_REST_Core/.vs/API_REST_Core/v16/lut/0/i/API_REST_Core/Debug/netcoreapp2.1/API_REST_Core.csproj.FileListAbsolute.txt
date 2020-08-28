@@ -1,0 +1,15 @@
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core\Debug\netcoreapp2.1\appsettings.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.deps.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.runtimeconfig.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.runtimeconfig.dev.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.dll
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.csprojAssemblyReference.cache
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.RazorAssemblyInfo.cache
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.RazorAssemblyInfo.cs
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.AssemblyInfoInputs.cache
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.AssemblyInfo.cs
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.RazorTargetAssemblyInfo.cache
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.csproj.CopyComplete
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core\Debug\netcoreapp2.1\API_REST_Core.dll

@@ -1,0 +1,15 @@
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\appsettings.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.deps.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.runtimeconfig.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.runtimeconfig.dev.json
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\b\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.dll
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.AssemblyInfoInputs.cache
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.AssemblyInfo.cs
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.csproj.CopyComplete
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.dll
+C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\.vs\API_REST_Core\v16\lut\0\i\API_REST_Core.XUnitTest\Debug\netcoreapp3.1\API_REST_Core.XUnitTest.csprojAssemblyReference.cache

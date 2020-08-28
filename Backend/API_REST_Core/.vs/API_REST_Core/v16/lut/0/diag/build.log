@@ -1,0 +1,1 @@
+[20:47:37.982 Verbose] - BuildManager - C:\Users\accar\Documents\Trabajo\Github\MusalaSoftTest\Backend\API_REST_Core\API_REST_Core.XUnitTest\API\GatewayApiTest.cs(24,50): error CS0103: The name 'context' does not exist in the current context

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button, Grid, Icon, Table, Input } from "semantic-ui-react";
+import { Button, Grid, Icon, Table, Label } from "semantic-ui-react";
 import "../../globals/css/Generic.css";
 import DeviceModal from "../Device/DeviceModal";
 import GatewayAdd from "./GatewayAdd";
@@ -84,58 +84,53 @@ export class Gateway extends Component {
   onKeyPressed = (evt) => {};
 
   render() {
-    const { searchcriteria, gateways } = this.state;
+    const { gateways } = this.state;
     return (
-      <Grid textAlign="center" verticalAlign="top" className="gestionar-allgrid">
-        <Grid.Column className="gestionar-allcolumn">
-          <Input
-            name="find"
-            value={searchcriteria}
-            icon={<Icon name="search" inverted circular link onClick={this.onClickSearch} />}
-            placeholder="Search..."
-            onChange={this.onClickSearch}
-            onKeyDown={this.onKeyPressed}
-          />
-          <Table compact celled definition>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell />
-                <Table.HeaderCell colSpan="6">
-                  <GatewayAdd gatewaysFromApi={this.gatewaysFromApi()} />
-                </Table.HeaderCell>
-              </Table.Row>
-              <Table.Row>
-                <Table.HeaderCell />
-                <Table.HeaderCell>Serial Number</Table.HeaderCell>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>IPv4 Address</Table.HeaderCell>
-                <Table.HeaderCell className="cells-max-witdh-2">Devices</Table.HeaderCell>
-                <Table.HeaderCell className="cells-max-witdh-2">Actions</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {gateways.map((gateway) => {
-                return (
-                  <Table.Row key={gateway._id}>
-                    <Table.Cell collapsing>
-                      <Icon name="shuffle" />
-                    </Table.Cell>
-                    <Table.Cell>{gateway.serialnumber}</Table.Cell>
-                    <Table.Cell>{gateway.name}</Table.Cell>
-                    <Table.Cell>{gateway.ipv4address}</Table.Cell>
-                    <Table.Cell className="cell-logs" collapsing>
-                      <DeviceModal gateway={gateway} />
-                    </Table.Cell>
-                    <Table.Cell className="cell-acciones" collapsing>
-                      {<Button icon="remove circle" className="button-remove" onClick={() => this.deleteGateway(gateway)} />}
-                    </Table.Cell>
-                  </Table.Row>
-                );
-              })}
-            </Table.Body>
-          </Table>
-        </Grid.Column>
-      </Grid>
+      <div>
+        <Label size="massive">Gateways</Label>
+        <Grid textAlign="center" verticalAlign="top" className="gestionar-allgrid">
+          <Grid.Column className="gestionar-allcolumn">
+            <Table compact celled definition>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell />
+                  <Table.HeaderCell colSpan="6">
+                    <GatewayAdd gatewaysFromApi={this.gatewaysFromApi()} />
+                  </Table.HeaderCell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.HeaderCell />
+                  <Table.HeaderCell>Serial Number</Table.HeaderCell>
+                  <Table.HeaderCell>Name</Table.HeaderCell>
+                  <Table.HeaderCell>IPv4 Address</Table.HeaderCell>
+                  <Table.HeaderCell className="cells-max-witdh-2">Devices</Table.HeaderCell>
+                  <Table.HeaderCell className="cells-max-witdh-2">Actions</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {gateways.map((gateway) => {
+                  return (
+                    <Table.Row key={gateway._id}>
+                      <Table.Cell collapsing>
+                        <Icon name="shuffle" />
+                      </Table.Cell>
+                      <Table.Cell>{gateway.serialnumber}</Table.Cell>
+                      <Table.Cell>{gateway.name}</Table.Cell>
+                      <Table.Cell>{gateway.ipv4address}</Table.Cell>
+                      <Table.Cell className="cell-logs" collapsing>
+                        <DeviceModal gateway={gateway} />
+                      </Table.Cell>
+                      <Table.Cell className="cell-acciones" collapsing>
+                        {<Button icon="remove circle" className="button-remove" onClick={() => this.deleteGateway(gateway)} />}
+                      </Table.Cell>
+                    </Table.Row>
+                  );
+                })}
+              </Table.Body>
+            </Table>
+          </Grid.Column>
+        </Grid>
+      </div>
     );
   }
 }

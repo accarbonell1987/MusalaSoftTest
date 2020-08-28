@@ -38,9 +38,14 @@ export class Device extends Component {
   }
 
   devicesFromApi = () => {
-    axios.get("https://localhost:44392/api/devices/gateway/" + this.props.gateway._id).then((res) => {
-      this.setState({ devices: res.data });
-    });
+    axios
+      .get("https://localhost:44392/api/devices/gateway/" + this.props.gateway._id)
+      .then((res) => {
+        this.setState({ devices: res.data });
+      })
+      .catch((err) => {
+        Swal.fire({ position: "center", icon: "error", title: err.response.data, showConfirmButton: false, timer: 3000 });
+      });
   };
 
   deleteDevice = (device) => {
@@ -97,7 +102,7 @@ export class Device extends Component {
                 <Table.Row>
                   <Table.HeaderCell />
                   <Table.HeaderCell colSpan="7">
-                    <DeviceAdd gateway={this.props.gateway} devicesFromApi={this.devicesFromApi()} devices={this.state.devices} />
+                    <DeviceAdd gateway={this.props.gateway} devicesFromApi={this.devicesFromApi} devices={this.state.devices} />
                   </Table.HeaderCell>
                 </Table.Row>
                 <Table.Row>

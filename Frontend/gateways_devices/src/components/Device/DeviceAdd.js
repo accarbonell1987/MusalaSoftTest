@@ -75,8 +75,8 @@ export class DeviceAdd extends Component {
             showConfirmButton: false,
             timer: 3000,
           });
+          this.props.devicesFromApi();
           this.clearModalStates();
-
           return true;
         }
       })
@@ -92,9 +92,7 @@ export class DeviceAdd extends Component {
       });
   };
   onSubmit = (evt) => {
-    if (this.addDevice()) {
-      this.props.devicesFromApi();
-    }
+    this.addDevice();
   };
   onPressEnter = (evt) => {
     const disabled = !this.state.name || !this.state.ipv4address;
